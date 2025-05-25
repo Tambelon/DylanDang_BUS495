@@ -15,10 +15,22 @@
         }
         
         header {
-            background-color: #1E88E5; /* Blue */
+            background: linear-gradient(135deg, #1E88E5 0%, #0D47A1 100%);
             color: white;
             text-align: center;
             padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FB8C00 0%, #C62828 100%);
         }
         
         h1 {
@@ -38,25 +50,119 @@
         }
         
         h2 {
-            color: #FB8C00; /* Orange */
+            color: #FB8C00;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
         }
         
-        .about-me {
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #FB8C00;
+            bottom: -5px;
+            left: 0;
+        }
+        
+        .about-me, .skills {
             background-color: white;
         }
         
-        .interests {
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 2;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #FB8C00;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .university-highlight {
+            color: #CC0000; /* IIT red */
+            font-weight: bold;
+        }
+        
+        .hero {
+            background-color: #f9f9f9;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .hero-text {
+            flex: 2;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 2px solid #1E88E5;
+        }
+        
+        .interests, .skills-grid {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             margin-top: 1.5rem;
         }
         
-        .interest-item {
+        .interest-item, .skill-card {
             text-align: center;
             margin: 1rem;
             flex: 1;
             min-width: 200px;
+            background-color: #f0f7ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .interest-item:hover, .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        
+        .skill-card {
+            text-align: left;
+            position: relative;
+            padding-left: 80px;
+            min-height: 100px;
+        }
+        
+        .skill-icon {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
         }
         
         .interest-item img {
@@ -67,12 +173,47 @@
             border: 3px solid #FB8C00;
         }
         
+        blockquote {
+            font-style: italic;
+            color: #555;
+            border-left: 4px solid #FB8C00;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: #FB8C00;
+            border-radius: 4px;
+        }
+        
         footer {
-            background-color: #1E88E5;
+            background: linear-gradient(135deg, #0D47A1 0%, #1E88E5 100%);
             color: white;
             text-align: center;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             margin-top: 2rem;
+        }
+        
+        .highlight {
+            color: #FB8C00;
+            font-weight: bold;
+        }
+        
+        .chicago-mention {
+            font-style: italic;
+            color: #666;
         }
     </style>
 </head>
@@ -80,24 +221,113 @@
     <header>
         <div class="container">
             <h1>Dylan Dang</h1>
-            <p>Business Student | Bubble Tea Enthusiast | Cat Lover</p>
+            <p>Business Student at Illinois Institute of Technology | Bubble Tea Enthusiast | Cat Lover</p>
         </div>
     </header>
     
     <section class="about-me">
         <div class="container">
             <h2>About Me</h2>
-            <p>Hello! I'm Dylan Dang, a 3rd year undergraduate student pursuing a BS in Business Administration. I'm passionate about learning and applying business concepts to real-world situations.</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm Dylan Dang, a 3rd year undergraduate student pursuing a BS in Business Administration at <span class="university-highlight">Illinois Institute of Technology</span> in Chicago, Illinois. I'm passionate about learning and applying business concepts to real-world situations, with a particular interest in consumer-focused business strategies.</p>
+                    
+                    <p class="chicago-mention">Living and studying in Chicago has given me exposure to diverse business environments and innovative startups in one of America's most dynamic cities.</p>
+                    
+                    <div class="interests">
+                        <div class="interest-item">
+                            <h3>Favorite Drink</h3>
+                            <p>Bubble Tea</p>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <h3>Favorite Animal</h3>
+                            <p>Cats</p>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <h3>Business Interest</h3>
+                            <p>Consumer Pricing Strategies</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="me-dylan.png" alt="Dylan Dang">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="skills">
+        <div class="container">
+            <h2>My Skills</h2>
+            <p>Throughout my academic and professional journey at Illinois Tech, I've developed a diverse set of skills that combine technical abilities with business acumen:</p>
             
-            <div class="interests">
-                <div class="interest-item">
-                    <h3>Favorite Drink</h3>
-                    <p>Bubble Tea</p>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <img src="webdevelopment_icon.png" alt="Web Development" class="skill-icon">
+                    <h3>Website Development</h3>
+                    <p>Proficient in HTML, CSS, and JavaScript. Built multiple responsive websites and web applications.</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%"></div>
+                    </div>
                 </div>
                 
-                <div class="interest-item">
-                    <h3>Favorite Animal</h3>
-                    <p>Cats</p>
+                <div class="skill-card">
+                    <img src="computeranimation_icon.png" alt="Computer Animation" class="skill-icon">
+                    <h3>Computer Animation</h3>
+                    <p>Skilled in 2D animation using Adobe Animate and basic 3D modeling with Blender.</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <img src="spreadsheet_icon.png" alt="Spreadsheets" class="skill-icon">
+                    <h3>Spreadsheet Proficiency</h3>
+                    <p>Advanced Excel skills including pivot tables, VLOOKUP, and financial modeling.</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <img src="customerservice_icon.png" alt="Customer Service" class="skill-icon">
+                    <h3>Customer Service</h3>
+                    <p>2+ years experience in Chicago's retail and food service industry, with excellent communication skills.</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 95%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="hero">
+        <div class="container">
+            <h2>My Hero: Don Vultaggio</h2>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p>My business hero is <span class="highlight">Don Vultaggio</span>, the co-founder and CEO of Arizona Beverages. Under his leadership, Arizona has maintained the <span class="highlight">99-cent price point</span> for their iconic 23-ounce iced tea cans for over 25 years, despite rising costs and inflation.</p>
+                    
+                    <blockquote>
+                        "We're giving back. We're not taking advantage. When costs go up, we try to cut in other places."
+                        <br>- Don Vultaggio
+                    </blockquote>
+                    
+                    <p>This commitment to affordable pricing has:</p>
+                    <ul>
+                        <li>Built an incredibly loyal customer base</li>
+                        <li>Created tremendous brand goodwill</li>
+                        <li>Been featured in numerous media outlets as an example of customer-first business practices</li>
+                        <li>Proven that long-term customer relationships can outweigh short-term profit maximization</li>
+                    </ul>
+                    
+                    <p>As a business student at Illinois Tech, I admire how Vultaggio has balanced business realities with customer commitment, showing that ethical pricing strategies can be both morally and commercially successful.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="arizona.png" alt="Arizona Beverages 99-cent cans">
+                    <p>Arizona Beverages' iconic 99-cent cans</p>
                 </div>
             </div>
         </div>
@@ -106,6 +336,7 @@
     <footer>
         <div class="container">
             <p>&copy; 2023 Dylan Dang. All rights reserved.</p>
+            <p>Illinois Institute of Technology Business Student | Chicago, IL</p>
         </div>
     </footer>
 </body>
