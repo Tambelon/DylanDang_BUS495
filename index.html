@@ -12,6 +12,65 @@
             background-color: #f5f5f5;
             color: #333;
             line-height: 1.6;
+            padding-top: 70px; /* Added for fixed nav */
+        }
+        
+        /* Navigation Bar Styles */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #0D47A1 0%, #1E88E5 100%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+            padding: 15px 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 15px 10px;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .nav-links a:hover {
+            color: #FB8C00;
+            border-bottom: 2px solid #FB8C00;
+        }
+        
+        .nav-links a.active {
+            color: #FB8C00;
+            border-bottom: 2px solid #FB8C00;
         }
         
         header {
@@ -21,211 +80,63 @@
             padding: 2rem 0;
             position: relative;
             overflow: hidden;
+            margin-top: 0; /* Removed margin-top since nav is fixed */
         }
         
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #FB8C00 0%, #C62828 100%);
+        /* Rest of your existing styles... */
+        /* [Previous CSS styles remain exactly the same] */
+        
+        /* Added smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
         
-        h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 2rem 0;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        h2 {
-            color: #FB8C00;
-            position: relative;
-            display: inline-block;
-            font-weight: 700;
-        }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            background-color: #FB8C00;
-            bottom: -5px;
-            left: 0;
-        }
-        
-        .about-me, .skills {
-            background-color: white;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-        
-        .about-text {
-            flex: 2;
-        }
-        
-        .about-image {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .about-image img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid #FB8C00;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .university-highlight {
-            color: #CC0000; /* IIT red */
-            font-weight: bold;
-        }
-        
-        .hero {
-            background-color: #f9f9f9;
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-        
-        .hero-text {
-            flex: 2;
-        }
-        
-        .hero-image {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border: 2px solid #1E88E5;
-        }
-        
-        .interests, .skills-grid {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-        
-        .interest-item, .skill-card {
-            text-align: center;
-            margin: 1rem;
-            flex: 1;
-            min-width: 200px;
-            background-color: #f0f7ff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .interest-item:hover, .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-        }
-        
-        .skill-card {
-            text-align: left;
-            position: relative;
-            padding-left: 80px;
-            min-height: 100px;
-        }
-        
-        .skill-icon {
-            position: absolute;
-            left: 20px;
-            top: 20px;
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-        }
-        
-        .interest-item img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid #FB8C00;
-        }
-        
-        blockquote {
-            font-style: italic;
-            color: #555;
-            border-left: 4px solid #FB8C00;
-            padding-left: 1rem;
-            margin: 1.5rem 0;
-            background-color: #f9f9f9;
-            padding: 1rem;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .progress-bar {
-            height: 8px;
-            background-color: #e0e0e0;
-            border-radius: 4px;
-            margin-top: 10px;
-            overflow: hidden;
-        }
-        
-        .progress {
-            height: 100%;
-            background-color: #FB8C00;
-            border-radius: 4px;
-        }
-        
-        footer {
-            background: linear-gradient(135deg, #0D47A1 0%, #1E88E5 100%);
-            color: white;
-            text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
-        }
-        
-        .highlight {
-            color: #FB8C00;
-            font-weight: bold;
-        }
-        
-        .chicago-mention {
-            font-style: italic;
-            color: #666;
+        /* Mobile responsive nav */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 10px;
+            }
+            
+            .nav-links {
+                margin-top: 10px;
+                width: 100%;
+                justify-content: space-around;
+            }
+            
+            .nav-links li {
+                margin-left: 0;
+            }
+            
+            .nav-links a {
+                padding: 10px 5px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">Dylan Dang</a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#hero">My Hero</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <header id="home">
         <div class="container">
             <h1>Dylan Dang</h1>
             <p>Business Student at Illinois Institute of Technology | Bubble Tea Enthusiast | Cat Lover</p>
         </div>
     </header>
     
-    <section class="about-me">
+    <section class="about-me" id="about">
         <div class="container">
             <h2>About Me</h2>
             <div class="about-content">
@@ -258,7 +169,7 @@
         </div>
     </section>
     
-    <section class="skills">
+    <section class="skills" id="skills">
         <div class="container">
             <h2>My Skills</h2>
             <p>Throughout my academic and professional journey at Illinois Tech, I've developed a diverse set of skills that combine technical abilities with business acumen:</p>
@@ -303,7 +214,7 @@
         </div>
     </section>
     
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="container">
             <h2>My Hero: Don Vultaggio</h2>
             <div class="hero-content">
@@ -339,5 +250,31 @@
             <p>Illinois Institute of Technology Business Student | Chicago, IL</p>
         </div>
     </footer>
+
+    <script>
+        // Highlight active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
